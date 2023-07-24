@@ -8,7 +8,7 @@ function Home(props) {
   useEffect(() => {
     async function fetchTrendingMovies() {
       const movies = await props.getTrendingMovies();
-      setTrendingMovies(movies);
+      setTrendingMovies(movies.results);
     }
     fetchTrendingMovies();
   }, [props]);
