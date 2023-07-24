@@ -6,24 +6,20 @@ function Cast(props) {
   const [cast, setCast] = useState([]);
 
   useEffect(() => {
-    async function fetchMovieCredits() {
-      const credits = await props.getMovieCredits(props.match.params.movieId);
-      setCast(credits.cast);
+    async function fetchData() {
+      const creditsData = await getMovieCredits(props.movieId);
+      setCast(creditsData.cast);
     }
-    fetchMovieCredits();
-  }, [props]);
+
+    fetchData();
+  }, [props.movieId]);
 
   return (
     <div>
-      <h1>Актори</h1>
+      <h2>Актори</h2>
       <ul>
         {cast.map((actor) => (
-          <li key={actor.id}>
-            {actor.profile_path && (
-              <img src={`https://image.tmdb.org/t/p/w185${actor.profile_path}`} alt={actor.name} />
-            )}
-            <p>{actor.name}</p>
-          </li>
+          <li key={actor.id}>{actor.name}</li>
         ))}
       </ul>
     </div>
@@ -31,12 +27,7 @@ function Cast(props) {
 }
 
 Cast.propTypes = {
-  getMovieCredits: PropTypes.func.isRequired,
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      movieId: PropTypes.string.isRequired,
-    }).isRequired,
-  }).isRequired,
+  movieId: PropTypes.string.isRequired,
 };
 
 export default Cast;
