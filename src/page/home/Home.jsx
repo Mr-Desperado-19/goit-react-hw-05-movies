@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { getTrendingMovies } from '../../services/api';
+// import { getTrendingMovies } from '../../services/api';
 
 function Home(props) {
   const [trendingMovies, setTrendingMovies] = useState([]);

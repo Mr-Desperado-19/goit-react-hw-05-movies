@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { searchMovies } from '../../services/api';
+// import { searchMovies } from '../../services/api';
 
 function Movies(props) {
   const [query, setQuery] = useState('');
