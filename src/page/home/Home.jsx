@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-// import { getTrendingMovies } from '../../services/api';
+import { getTrendingMovies } from '../../services/api';
 
-function Home(props) {
+function Home() {
   const [trendingMovies, setTrendingMovies] = useState([]);
 
   useEffect(() => {
     async function fetchTrendingMovies() {
-      const movies = await props.getTrendingMovies();
+      const movies = await getTrendingMovies();
       setTrendingMovies(movies.results);
     }
     fetchTrendingMovies();
-  }, [props]);
+  }, []);
 
   return (
     <div>
