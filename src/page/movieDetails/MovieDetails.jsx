@@ -1,28 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useParams } from 'react-router-dom';
 import { getMovieDetails, getMovieCredits, getMovieReviews } from '../../services/api';
 import Cast from '../../components/cast';
 import Reviews from '../../components/reviews';
 
-function MovieDetails(props) {
+function MovieDetails() {
+  const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   const [cast, setCast] = useState([]);
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
-      const movieData = await getMovieDetails(props.match.params.movieId);
+      const movieData = await getMovieDetails(movieId);
       setMovie(movieData);
 
-      const creditsData = await getMovieCredits(props.match.params.movieId);
+      const creditsData = await getMovieCredits(movieId);
       setCast(creditsData.cast);
 
-      const reviewsData = await getMovieReviews(props.match.params.movieId);
+      const reviewsData = await getMovieReviews(movieId);
       setReviews(reviewsData.results);
     }
 
     fetchData();
-  }, [props]);
+  }, [movieId]);
 
   if (!movie) {
     return null;

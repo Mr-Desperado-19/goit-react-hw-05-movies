@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-// import { searchMovies } from '../../services/api';
+import { searchMovies } from '../../services/api';
 
-function Movies(props) {
+function Movies() {
   const [query, setQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
   const handleSearch = async (event) => {
     event.preventDefault();
-    const results = await props.searchMovies(query);
+    const results = await searchMovies(query);
     setSearchResults(results);
   };
 
