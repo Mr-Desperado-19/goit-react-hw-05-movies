@@ -38,6 +38,7 @@
 
 // export default Movies;
 
+
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Outlet } from 'react-router-dom';
@@ -45,7 +46,7 @@ import { searchMovies } from '../../services/api';
 
 function Movies() {
   const [query, setQuery] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
+  const [setSearchResults] = useState([]);
 
   const handleSearch = async (event) => {
     event.preventDefault();

@@ -70,18 +70,18 @@ function MovieDetails() {
     fetchData();
   }, [movieId]);
 
-  if (!movie) {
-    return null;
-  }
-
   return (
-    <div>
-      <h1>{movie.title}</h1>
-      <p>{movie.overview}</p>
-      <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
+    <>
+      {movie && (
+        <div>
+          <h1>{movie.title}</h1>
+          <p>{movie.overview}</p>
+          <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
 
-      <Outlet />
-    </div>
+          <Outlet />
+        </div>
+      )}
+    </>
   );  
 }
 

@@ -32,7 +32,7 @@
 // export default App;
 
 import { lazy, Suspense } from "react";
-import { Routes, Route, Outlet } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Loading from "../loading";
 import SharedLayout from "../sharedLayout"; 
 
@@ -53,8 +53,6 @@ const App = () => {
             <Route path="movies/:movieId" element={<MovieDetails />}>
               <Route path="cast" element={<Cast />} />
               <Route path="reviews" element={<Reviews />} />
-              <Route path="*" element={<h1>404: Page not found</h1>} />
-              <Outlet />
             </Route>
             <Route path="*" element={<h1>404: Page not found</h1>} />
           </Route>

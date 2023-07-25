@@ -39,7 +39,7 @@ import { Outlet } from 'react-router-dom';
 import { getTrendingMovies } from '../../services/api';
 
 function Home() {
-  const [trendingMovies, setTrendingMovies] = useState([]);
+  const [setTrendingMovies] = useState([]);
 
   useEffect(() => {
     async function fetchTrendingMovies() {
