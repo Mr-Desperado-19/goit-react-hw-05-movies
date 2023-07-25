@@ -1,4 +1,5 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
+import { Suspense } from "react";
 
 const SharedLayout = ({ children }) => {
   return (
@@ -11,7 +12,9 @@ const SharedLayout = ({ children }) => {
           Movies
         </NavLink>
       </nav>
-      {children}
+      <Suspense fallback={null}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };
