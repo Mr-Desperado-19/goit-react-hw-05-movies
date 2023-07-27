@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { getMovieReviews } from '../../services/api';
 import { useParams, Outlet } from 'react-router-dom';
+import "./Reviews.scss"
 
 function Reviews() {
   const [reviews, setReviews] = useState([]);
@@ -17,13 +18,12 @@ function Reviews() {
   }, [movieId]);
 
   return (
-    <div>
-      <h2>Відгуки</h2>
-      <ul>
+    <div className="container">
+      <ul className='reviews-list'>
         {reviews.map((review) => (
-          <li key={review.id}>
-            <p>{review.content}</p>
-            <p>Автор: {review.author}</p>
+          <li key={review.id} className='reviews-item'>
+            <p className='reviews-text'>{review.content}</p>
+            <p className='reviews-text'>Author: {review.author}</p>
           </li>
         ))}
       </ul>

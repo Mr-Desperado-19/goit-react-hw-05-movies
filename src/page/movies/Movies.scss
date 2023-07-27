@@ -1,0 +1,94 @@
+.movies-form {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    max-width: 699px;
+
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    background-color: #fff;
+}
+
+.movies-input {
+    display: inline-block;
+    width: 710px;
+
+    font-family: 'Roboto';
+    font-size: 20px;
+    color: #000;
+
+    outline-color: #000;
+    border-radius: 10px;
+    
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 130px;
+
+    &::placeholder {
+        font-family: 'Roboto';
+        font-size: 18px;
+        color: #000;
+        opacity: 0.5;
+    }
+
+    &:hover,
+    &:focus {
+        outline-color: orangered;
+    }
+}
+
+.movies-btn {
+    position: absolute;
+    right: 1px;
+    display: inline-block;
+    width: 100px;
+    border: 0;
+    
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: 0.06em;
+
+    background-color: #000;    
+    color: #fff;
+
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover,
+    &:focus {
+        color: #000;
+        background-color: orangered;
+    }
+}
+
+.movies-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.movies-item {
+    color: orangered;
+}
+
+.movies-text {
+    font-family: 'Roboto';
+    font-size: 20px;
+    color: #000;
+
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    
+    &:hover,
+    &:focus {
+        color: orangered;
+    }
+}

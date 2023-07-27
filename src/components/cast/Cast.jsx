@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { getMovieCredits } from '../../services/api';
 import { useParams, Outlet } from 'react-router-dom';
+import "./Cast.scss"
 
 function Cast() {
   const [cast, setCast] = useState([]);
@@ -17,11 +18,10 @@ function Cast() {
   }, [movieId]);
 
   return (
-    <div>
-      <h2>Актори</h2>
-      <ul>
+    <div className="container">
+      <ul className='cast-list'>
         {cast.map((actor) => (
-          <li key={actor.id}>{actor.name}</li>
+          <li key={actor.id} className='cast-item'><span className='cast-text'>{actor.name}</span></li>
         ))}
       </ul>
       <Outlet />

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { searchMovies } from '../../services/api';
+import "./Movies.scss"
 
 function Movies() {
   const [query, setQuery] = useState('');
@@ -14,17 +15,24 @@ function Movies() {
   };
 
   return (
-    <div>
-      <h1>Пошук фільмів</h1>
-      <form onSubmit={handleSearch}>
-        <input type="text" value={query} onChange={(event) => setQuery(event.target.value)} />
-        <button type="submit">Пошук</button>
+    <div className="container">
+      <form onSubmit={handleSearch} className='movies-form'>
+        <input
+          type="text"
+          value={query}
+          onChange={(event) => setQuery(event.target.value)}
+          placeholder="Search movies"
+          className='movies-input'
+        />
+        <button type="submit" className='movies-btn'>Search</button>
       </form>
       {searchResults.length > 0 && (
-        <ul>
+        <ul className='movies-list'>
           {searchResults.map((movie) => (
-            <li key={movie.id}>
-              <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
+            <li key={movie.id} className='movies-item'>
+              <Link to={`/movies/${movie.id}`}>
+                <span className='movies-text'>{movie.title}</span>
+              </Link>
             </li>
           ))}
         </ul>

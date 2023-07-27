@@ -1,0 +1,15 @@
+.cast-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cast-item {
+    color: orangered;
+}
+
+.cast-text {
+    font-family: 'Roboto';
+    font-size: 20px;
+    color: #000;
+}
