@@ -21,7 +21,9 @@ function Cast() {
     <div className="container">
       <ul className='cast-list'>
         {cast.map((actor) => (
-          <li key={actor.id} className='cast-item'><span className='cast-text'>{actor.name}</span></li>
+          <li key={actor.id} className='cast-item'>
+            <span className='cast-text'>{actor.name}</span>
+          </li>
         ))}
       </ul>
       <Outlet />
