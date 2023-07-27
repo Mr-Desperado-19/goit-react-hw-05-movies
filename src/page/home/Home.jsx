@@ -20,7 +20,6 @@ function Home() {
       <ul>
         {trendingMovies.map((movie) => (
           <li key={movie.id}>
-            {/* <a href={`/movies/${movie.id}`}>{movie.title}</a> */}
             <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
           </li>
         ))}
