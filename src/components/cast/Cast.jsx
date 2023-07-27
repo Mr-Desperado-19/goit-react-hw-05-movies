@@ -35,19 +35,20 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { getMovieCredits } from '../../services/api';
-import { Outlet } from 'react-router-dom';
+import { useParams, Outlet } from 'react-router-dom';
 
-function Cast(props) {
+function Cast() {
   const [cast, setCast] = useState([]);
+  const { movieId } = useParams();
 
   useEffect(() => {
     async function fetchData() {
-      const creditsData = await getMovieCredits(props.movieId);
+      const creditsData = await getMovieCredits(movieId);
       setCast(creditsData.cast);
     }
 
     fetchData();
-  }, [props.movieId]);
+  }, [movieId]);
 
   return (
     <div>

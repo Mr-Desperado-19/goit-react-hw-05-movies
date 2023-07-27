@@ -52,7 +52,8 @@
 
 // export default MovieDetails;
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useParams, Outlet } from 'react-router-dom';
 import { getMovieDetails } from '../../services/api';
@@ -78,7 +79,17 @@ function MovieDetails() {
           <p>{movie.overview}</p>
           <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
 
-          <Outlet />
+          <Link to="cast">
+            <p>cast</p>
+          </Link>
+
+          <Link to="reviews">
+            <p>reviews</p>
+          </Link>
+
+          <Suspense fallback={null}>
+            <Outlet />
+          </Suspense>
         </div>
       )}
     </>

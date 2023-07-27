@@ -5,10 +5,10 @@ const SharedLayout = ({ children }) => {
   return (
     <div>
       <nav>
-        <NavLink to="/" activeClassName="active">
+        <NavLink to="/">
           Home
         </NavLink>
-        <NavLink to="/movies" activeClassName="active">
+        <NavLink to="/movies">
           Movies
         </NavLink>
       </nav>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { searchMovies } from '../../services/api';
 
@@ -23,7 +24,8 @@ function Movies() {
         <ul>
           {searchResults.map((movie) => (
             <li key={movie.id}>
-              <a href={`/movies/${movie.id}`}>{movie.title}</a>
+              {/* <a href={`/movies/${movie.id}`}>{movie.title}</a> */}
+              <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
             </li>
           ))}
         </ul>

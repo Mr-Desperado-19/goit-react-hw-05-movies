@@ -37,20 +37,21 @@
 
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
- import { getMovieReviews } from '../../services/api';
-import { Outlet } from 'react-router-dom';
+import { getMovieReviews } from '../../services/api';
+import { useParams, Outlet } from 'react-router-dom';
 
-function Reviews(props) {
+function Reviews() {
   const [reviews, setReviews] = useState([]);
+  const { movieId } = useParams();
 
   useEffect(() => {
     async function fetchData() {
-      const reviewsData = await getMovieReviews(props.movieId);
+      const reviewsData = await getMovieReviews(movieId);
       setReviews(reviewsData.results);
     }
 
     fetchData();
-  }, [props.movieId]);
+  }, [movieId]);
 
   return (
     <div>
